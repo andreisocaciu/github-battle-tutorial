@@ -2,10 +2,13 @@
  * Created by Andrei on 9/16/2016.
  */
 
-var styles = {
+const styles = {
     transparentBg: {
         background: 'transparent'
+    },
+    space: {
+        marginTop: '25px'
     }
 };
 
-module.exports = styles;
+export default styles;

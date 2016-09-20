@@ -2,23 +2,24 @@
  * Created by Andrei on 9/16/2016.
  */
 
-var React = require('react');
-var Prompt = require('../components/Prompt');
+import React, {Component, PropTypes} from "react";
+import Prompt from "../components/Prompt";
 
-var PromptContainer = React.createClass({
-    contextTypes: {
-        router: React.PropTypes.object.isRequired
-    },
-    getInitialState() {
-        return {
+export default class PromptContainer extends Component {
+    constructor(props, context) {
+        super(props, context);
+
+        this.state = {
             username: ''
         }
-    },
+    }
+
     handleUpdateUser(e) {
         this.setState({
             username: e.target.value
         });
-    },
+    }
+
     handleSubmitUser(e) {
         e.preventDefault();
 
@@ -39,16 +40,19 @@ var PromptContainer = React.createClass({
                 pathname: '/playerTwo/' + this.state.username
             });
         }
-    },
+    }
+
     render() {
         return (
             <Prompt
-                onSubmitUser={this.handleSubmitUser}
-                onUpdateUser={this.handleUpdateUser}
+                onSubmitUser={this.handleSubmitUser.bind(this)}
+                onUpdateUser={this.handleUpdateUser.bind(this)}
                 header={this.props.route.header}
                 username={this.state.username} />
         );
     }
-});
+}
 
-module.exports = PromptContainer;
+PromptContainer.contextTypes = {
+    router: PropTypes.object.isRequired
+};

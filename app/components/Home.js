@@ -2,23 +2,20 @@
  * Created by Andrei on 9/16/2016.
  */
 
-var React = require('react');
-var ReactRouter = require('react-router');
-var Link = ReactRouter.Link;
-var transparentBg = require('../styles').transparentBg;
+import React, {Component} from "react";
+import {Link} from "react-router";
+import MainContainer from "../containers/MainContainer";
 
-var Home = React.createClass({
-    render: function() {
+export default class Home extends Component {
+    render() {
         return (
-            <div className="jumbotron col-sm-6 col-sm-offset-3 text-center" style={transparentBg}>
+            <MainContainer>
                 <h1>Github Battle</h1>
                 <p className="lead">Some fancy motto</p>
                 <Link to="/playerOne">
                     <button type="button" className="btn btn-lg btn-success">Get Started</button>
                 </Link>
-            </div>
+            </MainContainer>
         );
     }
-});
-
-module.exports = Home;
+}

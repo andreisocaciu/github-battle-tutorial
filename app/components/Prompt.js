@@ -2,13 +2,12 @@
  * Created by Andrei on 9/16/2016.
  */
 
-var React = require('react');
-var PropTypes = React.PropTypes;
-var transparentBg = require('../styles').transparentBg;
+import React, {PropTypes} from "react";
+import styles from "../styles";
 
-function Prompt(props) {
+export default function Prompt(props) {
     return (
-        <div className="jumbotron col-sm-6 col-sm-offset-3 text-center" style={transparentBg}>
+        <div className="jumbotron col-sm-6 col-sm-offset-3 text-center" style={styles.transparentBg}>
             <h1>{props.header}</h1>
             <div className="col-sm-12">
                 <form onSubmit={props.onSubmitUser}>
@@ -36,5 +35,3 @@ Prompt.propTypes = {
     onSubmitUser: PropTypes.func.isRequired,
     username: PropTypes.string.isRequired
 };
-
-module.exports = Prompt;

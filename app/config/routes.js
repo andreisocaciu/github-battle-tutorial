@@ -2,28 +2,22 @@
  * Created by Andrei on 9/16/2016.
  */
 
-var React = require('react');
-var ReactRouter = require('react-router');
+import React from "react";
+import {Router, Route, IndexRoute, hashHistory} from "react-router";
+import Main from "../components/Main";
+import Home from "../components/Home";
+import PromptContainer from "../containers/PromptContainer";
+import ConfirmBattleContainer from "../containers/ConfirmBattleContainer";
+import ResultsContainer from "../containers/ResultsContainer";
 
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var IndexRoute = ReactRouter.IndexRoute;
-var hashHistory = ReactRouter.hashHistory;
-
-var Main = require('../components/Main');
-var Home = require('../components/Home');
-var PromptContainer = require('../containers/PromptContainer');
-
-var routes = (
+export default (
     <Router history={hashHistory}>
         <Route path='/' component={Main}>
             <IndexRoute component={Home} />
             <Route path='playerOne' header='Player One' component={PromptContainer} />
             <Route path='playerTwo/:playerOne' header='Player Two' component={PromptContainer} />
-            {/*<Route path='battle' header='Battle' component={ConfirmBattleContainer} />*/}
-            {/*<Route path='results' header='Results' component={ResultsContainer} />*/}
+            <Route path='battle' header='Battle' component={ConfirmBattleContainer} />
+            <Route path='results' header='Results' component={ResultsContainer} />
         </Route>
     </Router>
 );
-
-module.exports = routes;
