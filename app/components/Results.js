@@ -8,6 +8,7 @@ import MainContainer from "../containers/MainContainer";
 import UserDetails from "../components/UserDetails";
 import UserDetailsWrapper from "../components/UserDetailsWrapper";
 import styles from "../styles";
+import Loading from "../components/Loading";
 
 function StartOver() {
     return (
@@ -24,7 +25,7 @@ function StartOver() {
 export default function Results(props) {
     if (props.isLoading === true) {
         return (
-            <p>Loading</p>
+            <Loading />
         );
     }
 
